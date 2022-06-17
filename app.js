@@ -8,7 +8,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var mPesaRouter = require('./routes/mPesa');
 
-const mPesaAuth = require('./middleware/mPesaAuth');
+const mPesaOAuth = require('./middlewares/mPesaAuth');
 
 var app = express();
 
@@ -23,7 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/payments', mPesaAuth, mPesaRouter);
+app.use('/payments', mPesaOAuth, mPesaRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

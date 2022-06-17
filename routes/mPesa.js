@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/m-pesa', function(req, res, next) {
-  res.render(`${req.mPesaAuth}`);
+  res.json(req.mPesaAuth['access_token']);
 });
 
 module.exports = router;
