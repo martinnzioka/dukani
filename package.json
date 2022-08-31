@@ -1,9 +1,30 @@
 {
   "name": "prototype",
   "version": "0.0.0",
+  "description": "A package to work with strings",
   "private": true,
+  "main": "./bin/www",
   "scripts": {
-    "start": "node ./bin/www"
+    "dev": "DEBUG=prototype:* nodemon ./bin/www",
+    "start": "./bin/www",
+    "build": "pkg --compress Gzip .",
+    "lint": "eslint --ext .js"
+  },
+  "bin": {
+    "dukani": "./bin/www"
+  },
+  "pkg": {
+    "scripts": "public/javascripts/**/*.js",
+    "assets": [
+      "views/**/*",
+      "public/images/**/*",
+      "public/stylesheets/**/*",
+      "public/javascripts/**/*.map"
+    ],
+    "targets": [
+      "node16-linux-x64"
+    ],
+    "outputPath": "dist"
   },
   "dependencies": {
     "axios": "^0.27.2",
@@ -14,5 +35,35 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1"
-  }
+  },
+  "devDependencies": {
+    "eslint": "^8.0.1",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "nodemon": "^2.0.19"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0",
+    "yarn": "^1.22.17"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/whatever/testing.git"
+  },
+  "author": {
+    "name": "Martin Nzioka",
+    "email": "mutua@tujointech.com",
+    "url": "https://tujointech.com"
+  },
+  "license": "",
+  "contributors": [
+    {
+      "name": "Martin Nzioka",
+      "email": "mutua@tujointech.com",
+      "url": "https://tujointech.com"
+    }
+  ]
 }
