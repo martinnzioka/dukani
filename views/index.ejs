@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Checkout Dukani</title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <div class="container">
+      <main>
+        <div class="py-5 text-center">
+          <img class="d-block mx-auto mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+          <h2><%= title %></h2>
+          <p class="lead"><%= welcomeNote %></p>
+        </div>
+    
+        <div class="row g-5">
+
+          <%- include('partials/cart') %>
+          <%- include('partials/billing') %>
+
+        </div>
+      </main>
+    
+      <%- include('partials/footer') %>
+
+    </div>
   </body>
+  <script src="/javascripts/bootstrap.bundle.js"></script>
 </html>
